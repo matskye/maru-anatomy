@@ -37,6 +37,8 @@ let incorrectCount = 0;
 let streakCount = 0;
 let maxStreak = 0;
 
+let gameStarted = false;
+
 // Function to start the game
 function startGame() {
     document.getElementById('start-button').disabled = true;
@@ -53,6 +55,11 @@ function generateTask() {
 
 // Function to check if the player clicked the correct area
 function checkAnswer(bodyPart) {
+    if (!gameStarted) return;
+    if (!currentTask || !currentTask.bodyPart) {
+        console.error('No current task is set.');
+        return;
+    }
     let resultMessage = document.getElementById('result-message');
     if (bodyPart === currentTask) {
         resultMessage.textContent = 'Correct!';
