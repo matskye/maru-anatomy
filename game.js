@@ -27,10 +27,8 @@ let tasks = [
     { bodyPart: 'ひだりまゆ', label: '<ruby>左眉<rt>ひだりまゆ</rt></ruby>' },
     { bodyPart: 'みぎまゆ', label: '<ruby>右眉<rt>みぎまゆ</rt></ruby>' },
     { bodyPart: 'ひだりかた', label: '<ruby>左肩<rt>ひだりかた</rt></ruby>' },
-    { bodyPart: 'みぎかた', label: '<ruby>右肩<rt>みぎかた</rt></ruby> },
+    { bodyPart: 'みぎかた', label: '<ruby>右肩<rt>みぎかた</rt></ruby>' },
     { bodyPart: 'くび', label: 'くび' },
-];
-
 ];
 
 // Variables for scoring
