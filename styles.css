@@ -1,49 +1,117 @@
 /* styles.css */
+
+/* Reset default margins and paddings for consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background for a soothing effect */
+    color: #333;
     text-align: center;
-    background-color: #f4f4f4;
+    padding: 20px;
 }
 
 h1 {
-    color: #333;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
 }
 
 #task-message {
-    font-size: 1.5rem;  /* Adjust font size as needed */
-    text-align: center;
-    margin-bottom: 20px;  /* Add space between the prompt and the image */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
     position: relative;
-    z-index: 10;  /* Ensure it's on top of other elements */
+    z-index: 10;
 }
 
 #game-image {
-    width: 60%;
-    max-width: 600px;
-    margin: 0px auto;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
     display: block;
+    border: 5px solid #2c3e50; /* Add a border around the image */
+    border-radius: 10px;
 }
 
-#start-button {
-    padding: 10px 20px;
-    font-size: 1rem;
+button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #2980b9;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    margin: 10px 5px;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-#result-message {
-    font-size: 1.2rem;
-    color: green;
-    margin-top: 20px;
+button:hover {
+    background-color: #3498db;
+    transform: translateY(-2px);
 }
 
-#score-display {
-    margin: 20px;
-    font-size: 1.2rem;
+#start-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 #reset-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 10px;
+    background-color: #e74c3c;
+}
+
+#reset-button:hover {
+    background-color: #c0392b;
+}
+
+#score-display {
+    margin: 20px auto;
+    font-size: 1.2rem;
+    width: fit-content;
+    text-align: left;
+}
+
+#score-display p {
+    margin: 5px 0;
+}
+
+#result-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#result-message.correct {
+    color: #27ae60;
+}
+
+#result-message.incorrect {
+    color: #e74c3c;
+}
+
+/* Footer styling */
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Additional responsive styling */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #task-message {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
 }
