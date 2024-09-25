@@ -61,7 +61,7 @@ function checkAnswer(bodyPart) {
         return;
     }
     let resultMessage = document.getElementById('result-message');
-    if (bodyPart === currentTask) {
+    if (bodyPart === currentTask.bodyPart) {
         resultMessage.textContent = 'Correct!';
         resultMessage.classList.remove('incorrect');
         resultMessage.classList.add('correct');
@@ -107,6 +107,9 @@ function resetScore() {
     correctCount = 0;
     incorrectCount = 0;
     streakCount = 0;
+    gameStarted = false;
+    document.getElementById('start-button').disabled = false; // Re-enable the start button
+    document.getElementById('task-message').textContent = ''; // Clear the task message
     document.getElementById('result-message').textContent = '';  // Clear the result message
     updateScoreDisplay();
 }
