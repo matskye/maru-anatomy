@@ -109,24 +109,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Other initialization code
 });
 
-
-// Call this function after the DOM has loaded
-document.addEventListener('DOMContentLoaded', () => {
-    initializeEventListeners();
-    imageMapResize();
-});
-
-function initializeEventListeners() {
-    const areas = document.querySelectorAll('area');
-    areas.forEach(area => {
-        area.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default action
-            const bodyPart = this.getAttribute('data-body-part');
-            checkAnswer(bodyPart);
-        });
-    });
-}
-
 // Function to reset the score
 function resetScore() {
     correctCount = 0;
