@@ -9,16 +9,19 @@ h1 {
     color: #333;
 }
 
+#task-message {
+    font-size: 1.5rem;  /* Adjust font size as needed */
+    text-align: center;
+    margin-bottom: 20px;  /* Add space between the prompt and the image */
+    position: relative;
+    z-index: 10;  /* Ensure it's on top of other elements */
+}
+
 #game-image {
     width: 60%;
     max-width: 600px;
     margin: 0px auto;
     display: block;
-}
-
-#task-message {
-    font-size: 1.5rem;
-    margin: 20px;
 }
 
 #start-button {
