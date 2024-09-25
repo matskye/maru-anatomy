@@ -99,6 +99,7 @@ function updateScoreDisplay() {
 // Call this function after the DOM has loaded
 document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
+    imageMapResize();
 });
 
 function initializeEventListeners() {
