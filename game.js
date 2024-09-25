@@ -8,7 +8,7 @@ let tasks = [
     { bodyPart: 'しっぽ', label: '<ruby>尻尾<rt>しっぽ</rt></ruby>' },
     { bodyPart: 'ひだりあし', label: '<ruby>左足<rt>ひだりあし</rt></ruby>' },
     { bodyPart: 'みぎあし', label: '<ruby>右足<rt>みぎあし</rt></ruby>' },
-    { bodyPart: 'おなか', label: '<ruby>お腹<rt>おなか</rt></ruby>' }
+    { bodyPart: 'おなか', label: '<ruby>お腹<rt>おなか</rt></ruby>' },
     { bodyPart: 'こし', label: '<ruby>腰<rt>こし</rt></ruby>' },
     { bodyPart: 'むね', label: '<ruby>胸<rt>むね</rt></ruby>' },
     { bodyPart: 'また', label: '<ruby>股間<rt>こかん</rt></ruby>' },
