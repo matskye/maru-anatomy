@@ -41,6 +41,7 @@ let gameStarted = false;
 
 // Function to start the game
 function startGame() {
+    gameStarted = true;
     document.getElementById('start-button').disabled = true;
     generateTask();
 }
