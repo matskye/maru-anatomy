@@ -2,33 +2,30 @@
 let currentTask = '';
 let tasks = [
     { bodyPart: 'あたま', label: '<ruby>頭<rt>あたま</rt></ruby>' },
-    { bodyPart: 'ひだりうで', label: '<ruby>左腕<rt>ひだりうで</rt></ruby>' },
-    { bodyPart: 'みぎうで', label: '<ruby>右腕<rt>みぎうで</rt></ruby>' },
-    { bodyPart: 'せなか', label: '<ruby>背中<rt>せなか</rt></ruby>' },
-    { bodyPart: 'しっぽ', label: '<ruby>尻尾<rt>しっぽ</rt></ruby>' },
-    { bodyPart: 'ひだりあし', label: '<ruby>左足<rt>ひだりあし</rt></ruby>' },
-    { bodyPart: 'みぎあし', label: '<ruby>右足<rt>みぎあし</rt></ruby>' },
-    { bodyPart: 'おなか', label: '<ruby>お腹<rt>おなか</rt></ruby>' },
-    { bodyPart: 'こし', label: '<ruby>腰<rt>こし</rt></ruby>' },
-    { bodyPart: 'むね', label: '<ruby>胸<rt>むね</rt></ruby>' },
-    { bodyPart: 'また', label: '<ruby>股<rt>また</rt></ruby>' },
-    { bodyPart: 'ひだりひざ', label: '<ruby>左<rt>ひだり</rt></ruby>ひざ' },
-    { bodyPart: 'みぎひざ', label: '<ruby>右<rt>みぎ</rt></ruby>ひざ' },
-    { bodyPart: 'ひだりて', label: '<ruby>左手<rt>ひだりて</rt></ruby>' },
-    { bodyPart: 'ひだりひじ', label: '<ruby>左<rt>ひだり</rt></ruby>ひじ' },
-    { bodyPart: 'ひだりめ', label: '<ruby>左目<rt>ひだりめ</rt></ruby>' },
-    { bodyPart: 'みぎめ', label: '<ruby>右目<rt>みぎめ</rt></ruby>' },
-    { bodyPart: 'はな', label: '<ruby>鼻<rt>はな</rt></ruby>' },
-    { bodyPart: 'くち', label: '<ruby>口<rt>くち</rt></ruby>' },
-    { bodyPart: 'ひだりみみ', label: '<ruby>左耳<rt>ひだりみみ</rt></ruby>' },
     { bodyPart: 'みぎみみ', label: '<ruby>右耳<rt>みぎみみ</rt></ruby>' },
-    { bodyPart: 'ひだりほお', label: '<ruby>左<rt>ひだり</rt></ruby>ほお' },
-    { bodyPart: 'みぎほお', label: '<ruby>右<rt>みぎ</rt></ruby>ほお' },
-    { bodyPart: 'ひだりまゆ', label: '<ruby>左眉<rt>ひだりまゆ</rt></ruby>' },
-    { bodyPart: 'みぎまゆ', label: '<ruby>右眉<rt>みぎまゆ</rt></ruby>' },
-    { bodyPart: 'ひだりかた', label: '<ruby>左肩<rt>ひだりかた</rt></ruby>' },
+    { bodyPart: 'ひだりみみ', label: '<ruby>左耳<rt>ひだりみみ</rt></ruby>' },
     { bodyPart: 'みぎかた', label: '<ruby>右肩<rt>みぎかた</rt></ruby>' },
-    { bodyPart: 'くび', label: 'くび' },
+    { bodyPart: 'ひだりかた', label: '<ruby>左肩<rt>ひだりかた</rt></ruby>' },
+    { bodyPart: 'みぎうで', label: '<ruby>右腕<rt>みぎうで</rt></ruby>' },
+    { bodyPart: 'ひだりうで', label: '<ruby>左腕<rt>ひだりうで</rt></ruby>' },
+    { bodyPart: 'みぎて', label: '<ruby>右手<rt>みぎて</rt></ruby>' },
+    { bodyPart: 'ひだりて', label: '<ruby>左手<rt>ひだりて</rt></ruby>' },
+    { bodyPart: 'みぎおやゆび', label: '<ruby>右親指<rt>みぎおやゆび</rt></ruby>' },
+    { bodyPart: 'ひだりおやゆび', label: '<ruby>左親指<rt>ひだりおやゆび</rt></ruby>' },
+    { bodyPart: 'くび', label: '<ruby>首<rt>くび</rt></ruby>' },
+    { bodyPart: 'どう', label: '<ruby>胴<rt>どう</rt></ruby>' },
+    { bodyPart: 'こし', label: '<ruby>腰<rt>こし</rt></ruby>' },
+    { bodyPart: 'あし', label: '<ruby>足<rt>あし</rt></ruby>' },
+    { bodyPart: 'みぎあし', label: '<ruby>右足<rt>みぎあし</rt></ruby>' },
+    { bodyPart: 'ひだりあし', label: '<ruby>左足<rt>ひだりあし</rt></ruby>' },
+    { bodyPart: 'くち', label: '<ruby>口<rt>くち</rt></ruby>' },
+    { bodyPart: 'みぎめ', label: '<ruby>右目<rt>みぎめ</rt></ruby>' },
+    { bodyPart: 'ひだりめ', label: '<ruby>左目<rt>ひだりめ</rt></ruby>' },
+    { bodyPart: 'ほお', label: '<ruby>頬<rt>ほお</rt></ruby>' },
+    { bodyPart: 'はな', label: '<ruby>鼻<rt>はな</rt></ruby>' },
+    { bodyPart: 'みぎまゆ', label: '<ruby>右眉<rt>みぎまゆ</rt></ruby>' },
+    { bodyPart: 'ひだりまゆ', label: '<ruby>左眉<rt>ひだりまゆ</rt></ruby>' },
+    { bodyPart: 'しっぽ', label: '<ruby>尻尾<rt>しっぽ</rt></ruby>' },
 ];
 
 // Variables for scoring
@@ -95,6 +92,23 @@ function updateScoreDisplay() {
     document.getElementById('incorrect-count').textContent = incorrectCount;
     document.getElementById('streak-count').textContent = streakCount;
 }
+
+function initializeSVGEventListeners() {
+    const svgElements = document.querySelectorAll('[data-body-part]');
+    svgElements.forEach(element => {
+        element.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default behavior
+            const bodyPart = this.getAttribute('data-body-part');
+            checkAnswer(bodyPart);
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeSVGEventListeners();
+    // Other initialization code
+});
+
 
 // Call this function after the DOM has loaded
 document.addEventListener('DOMContentLoaded', () => {
