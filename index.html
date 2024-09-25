@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maru's Anatomy Game</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
     <h1>Maru's Anatomy Game</h1>
 
     <!-- Display the task message -->
@@ -105,7 +109,8 @@
 
     <!-- Start button to begin the game -->
     <button id="start-button" onclick="startGame()">Start Game</button>
-
+    <button id="reset-button" onclick="resetScore()">Reset Score</button>
+        
     <!-- Score display -->
     <div id="score-display">
         <p>Total Correct: <span id="correct-count">0</span></p>
@@ -113,11 +118,9 @@
         <p>Correct Streak: <span id="streak-count">0</span></p>
     </div>
 
-    <!-- Reset score button -->
-    <button id="reset-button" onclick="resetScore()">Reset Score</button>
-
     <!-- Result message display -->
     <div id="result-message"></div>
+    </div>
 
     <script src="game.js"></script>
 </body>
