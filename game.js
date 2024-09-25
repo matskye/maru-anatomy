@@ -46,7 +46,7 @@ function startGame() {
 // Function to generate a random task
 function generateTask() {
     let randomIndex = Math.floor(Math.random() * tasks.length);
-    let currentTask = tasks[randomIndex];
+    currentTask = tasks[randomIndex];
     document.getElementById('task-message').innerHTML = `Click on: ${currentTask.label}`;
 }
 
