@@ -11,7 +11,7 @@ let tasks = [
     { bodyPart: 'おなか', label: '<ruby>お腹<rt>おなか</rt></ruby>' },
     { bodyPart: 'こし', label: '<ruby>腰<rt>こし</rt></ruby>' },
     { bodyPart: 'むね', label: '<ruby>胸<rt>むね</rt></ruby>' },
-    { bodyPart: 'また', label: '<ruby>股間<rt>こかん</rt></ruby>' },
+    { bodyPart: 'また', label: '<ruby>股<rt>また</rt></ruby>' },
     { bodyPart: 'ひだりひざ', label: '<ruby>左<rt>ひだり</rt></ruby>ひざ' },
     { bodyPart: 'みぎひざ', label: '<ruby>右<rt>みぎ</rt></ruby>ひざ' },
     { bodyPart: 'ひだりて', label: '<ruby>左手<rt>ひだりて</rt></ruby>' },
@@ -61,8 +61,17 @@ function checkAnswer(bodyPart) {
         console.error('No current task is set.');
         return;
     }
+
+    // Normalize and trim the strings
+    const clickedPart = bodyPart.trim().normalize();
+    const taskPart = currentTask.bodyPart.trim().normalize();
+
+    // Debugging statements
+    console.log('Clicked bodyPart:', clickedPart);
+    console.log('Current task bodyPart:', taskPart);
+
     let resultMessage = document.getElementById('result-message');
-    if (bodyPart === currentTask.bodyPart) {
+    if (clickedPart === taskPart) {
         resultMessage.textContent = 'Correct!';
         resultMessage.classList.remove('incorrect');
         resultMessage.classList.add('correct');
