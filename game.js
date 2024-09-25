@@ -63,13 +63,15 @@ function checkAnswer(bodyPart) {
     let resultMessage = document.getElementById('result-message');
     if (bodyPart === currentTask) {
         resultMessage.textContent = 'Correct!';
-        resultMessage.style.color = 'green';
+        resultMessage.classList.remove('incorrect');
+        resultMessage.classList.add('correct');
         correctCount++;
         streakCount++;
         maxStreak = Math.max(maxStreak, streakCount);
     } else {
         resultMessage.textContent = 'Try again!';
-        resultMessage.style.color = 'red';
+        resultMessage.classList.remove('correct');
+        resultMessage.classList.add('incorrect');
         incorrectCount++;
         streakCount = 0;  // Reset streak on wrong answer
     }
