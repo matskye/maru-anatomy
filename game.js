@@ -60,7 +60,6 @@ function checkAnswer(bodyPart) {
         correctCount++;
         streakCount++;
         maxStreak = Math.max(maxStreak, streakCount);
-        generateTask();  // Generate new task
     } else {
         resultMessage.textContent = 'Try again!';
         resultMessage.style.color = 'red';
@@ -68,6 +67,7 @@ function checkAnswer(bodyPart) {
         streakCount = 0;  // Reset streak on wrong answer
     }
     updateScoreDisplay();
+    generateTask();
 }
 
 // Function to update the score display
