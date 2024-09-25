@@ -77,6 +77,22 @@ function updateScoreDisplay() {
     document.getElementById('streak-count').textContent = streakCount;
 }
 
+// Call this function after the DOM has loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeEventListeners();
+});
+
+function initializeEventListeners() {
+    const areas = document.querySelectorAll('area');
+    areas.forEach(area => {
+        area.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default action
+            const bodyPart = this.getAttribute('data-body-part');
+            checkAnswer(bodyPart);
+        });
+    });
+}
+
 // Function to reset the score
 function resetScore() {
     correctCount = 0;
