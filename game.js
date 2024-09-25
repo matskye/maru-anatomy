@@ -48,9 +48,10 @@ function startGame() {
 // Function to generate a random task
 function generateTask() {
     let randomIndex = Math.floor(Math.random() * tasks.length);
-    currentTask = tasks[randomIndex].bodyPart;
-    document.getElementById('task-message').textContent = `Click on: ${tasks[randomIndex].label}`;
+    let currentTask = tasks[randomIndex];
+    document.getElementById('task-message').innerHTML = `Click on: ${currentTask.label}`;
 }
+
 
 // Function to check if the player clicked the correct area
 function checkAnswer(bodyPart) {
