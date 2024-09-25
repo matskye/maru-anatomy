@@ -28,6 +28,27 @@ h1 {
     z-index: 10;
 }
 
+/* Ensure the SVG scales responsively */
+#svg-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#svg-container svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Style interactive SVG elements */
+[data-body-part] {
+    cursor: pointer;
+}
+
+[data-body-part]:hover {
+    fill: rgba(0, 0, 255, 0.2); /* Highlight on hover */
+}
+
 #game-image {
     width: 80%;
     max-width: 800px;
