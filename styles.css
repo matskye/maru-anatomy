@@ -113,9 +113,9 @@ footer {
     color: #777;
 }
 
-/* Flip the SVG when the 'mirrored' class is added */
-#svg-container.mirrored svg {
+#svg-container svg.mirrored {
     transform: scaleX(-1);
+    transform-origin: center;
 }
 
 /* Additional responsive styling */
