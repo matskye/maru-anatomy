@@ -116,6 +116,12 @@ footer {
 #svg-container svg.mirrored {
     transform: scaleX(-1);
     transform-origin: center;
+    pointer-events: none; /* Disable pointer events on the SVG */
+}
+
+/* Re-enable pointer events on interactive elements */
+#svg-container svg.mirrored [data-body-part] {
+    pointer-events: auto;
 }
 
 /* Additional responsive styling */
