@@ -13,14 +13,20 @@
     <div class="container">
     <h1>Maru's Anatomy Game</h1>
 
+     <!-- Mirror Mode Toggle -->
+        <label>
+            <input type="checkbox" id="mirror-toggle" onchange="toggleMirrorMode(this.checked)"> Mirror Mode
+        </label>    
+
     <!-- Display the task message -->
     <div id="task-message"></div>
 
     <div id="svg-container">
 
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+   <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-    viewBox="0 0 1024 1024"
+   width="1024"
+   height="1024"
    version="1.1"
    id="svg37"
    sodipodi:docname="a-cartoon-red-panda-t-posing-for-anatomical-studie.svg"
@@ -122,7 +128,8 @@
      data-body-part="ひだりあし" />
   <g
      id="tail"
-     inkscape:label="tail">
+     inkscape:label="tail"
+     data-body-part="しっぽ">
     <path
        fill="#F45504"
        d="M648.764 777.607C655.101 747.058 654.958 711.082 653.447 679.943C653.001 670.735 652.608 661.498 651.876 652.308C651.547 648.176 650.469 643.567 650.642 639.468C650.693 638.268 650.897 637.961 651.589 637.044C652.971 636.764 654.012 637.029 655.352 637.331C683.096 671.064 690.281 715.276 686.008 757.744C685.312 764.658 683.847 771.427 682.145 778.154C670.941 778.984 659.937 778.662 648.764 777.607Z"
