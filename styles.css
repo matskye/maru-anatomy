@@ -113,6 +113,11 @@ footer {
     color: #777;
 }
 
+/* Flip the SVG when the 'mirrored' class is added */
+#svg-container.mirrored svg {
+    transform: scaleX(-1);
+}
+
 /* Additional responsive styling */
 @media (max-width: 600px) {
     h1 {
