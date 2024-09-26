@@ -144,11 +144,11 @@ let mirrorMode = false;
 
 function toggleMirrorMode(isMirrored) {
     mirrorMode = isMirrored;
-    const svgContainer = document.getElementById('svg-container');
+    const svgElement = document.querySelector('#svg-container svg');
     if (mirrorMode) {
-        svgContainer.classList.add('mirrored');
+        svgElement.classList.add('mirrored');
     } else {
-        svgContainer.classList.remove('mirrored');
+        svgElement.classList.remove('mirrored');
     }
     // Regenerate the task to update the label
     generateTask();
