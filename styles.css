@@ -113,9 +113,6 @@ footer {
     color: #777;
 }
 
-#svg-container svg.mirrored {
-}
-
 #svg-container svg #mirror-group.mirrored {
     transform: scaleX(-1);
     transform-origin: center;
