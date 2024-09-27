@@ -86,8 +86,8 @@ function checkAnswer(bodyPart) {
     }
 
     // Normalize and trim the strings
-    const clickedPart = bodyPart.trim().normalize();
-    const taskPart = currentTask.bodyPart.trim().normalize();
+    let clickedPart = bodyPart.trim().normalize();
+    let taskPart = currentTask.bodyPart.trim().normalize();
 
         // Adjust for Mirror Mode
     if (mirrorMode) {
