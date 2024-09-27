@@ -43,37 +43,10 @@ function startGame() {
     generateTask();
 }
 
-function swapLeftRight(bodyPart) {
-    if (bodyPart.includes('ひだり')) {
-        return bodyPart.replace('ひだり', 'みぎ');
-    } else if (bodyPart.includes('みぎ')) {
-        return bodyPart.replace('みぎ', 'ひだり');
-    } else {
-        return bodyPart; // No left/right, return as is
-    }
-}
-
-function swapLeftRightLabel(label) {
-    return label
-        .replace(/ひだり/g, 'TEMP_HIDARI')
-        .replace(/みぎ/g, 'ひだり')
-        .replace(/TEMP_HIDARI/g, 'みぎ')
-        .replace(/左/g, 'TEMP_SA')
-        .replace(/右/g, '左')
-        .replace(/TEMP_SA/g, '右');
-}
-
-function getMirroredTask(task) {
-    const mirroredBodyPart = swapLeftRight(task.bodyPart);
-    const mirroredLabel = swapLeftRightLabel(task.label);
-    return { bodyPart: mirroredBodyPart, label: mirroredLabel };
-}
-
 // Function to generate a random task
 function generateTask() {
     let randomIndex = Math.floor(Math.random() * tasks.length);
-    let task = tasks[randomIndex];
-    currentTask = mirrorMode ? getMirroredTask(task) : task;
+    currentTask = tasks[randomIndex];
     document.getElementById('task-message').innerHTML = `Click on: ${currentTask.label}`;
 }
 
@@ -88,11 +61,6 @@ function checkAnswer(bodyPart) {
     // Normalize and trim the strings
     let clickedPart = bodyPart.trim().normalize();
     let taskPart = currentTask.bodyPart.trim().normalize();
-
-        // Adjust for Mirror Mode
-    if (mirrorMode) {
-        clickedPart = swapLeftRight(clickedPart);
-    }
 
     // Debugging statements
     console.log('Clicked bodyPart:', clickedPart);
@@ -150,8 +118,6 @@ function toggleMirrorMode(isMirrored) {
     } else {
         mirrorGroup.classList.remove('mirrored');
     }
-    // Regenerate the task to update the label
-    generateTask();
 }
 
 // Function to reset the score
